@@ -4,23 +4,21 @@ Please edit this file by adding the solution commands on the line below the prom
 
 Save and submit the completed file for your homework submission.
 
----
-
 ### Step 1: Create, Extract, Compress, and Manage tar Backup Archives
 
 1. Command to **extract** the `TarDocs.tar` archive to the current directory:
-
+    sudo tar -xvvf TarDocs.tar
 2. Command to **create** the `Javaless_Doc.tar` archive from the `TarDocs/` directory, while excluding the `TarDocs/Documents/Java` directory:
-
+    sudo tar --exclude='TarDocs/Documents/Java' -cvvf Javaless_Doc.tar TarDocs
 3. Command to ensure `Java/` is not in the new `Javaless_Docs.tar` archive:
-
+    tar -tvf Javaless_Docs.tar
 **Bonus** 
 - Command to create an incremental archive called `logs_backup_tar.gz` with only changed files to `snapshot.file` for the `/var/log` directory:
-
+    tar -cvvfgz --listed-incremental=/var/log/snapshot.snar --file /var/logs_backup_tar.gz /var/log
 #### Critical Analysis Question
 
 - Why wouldn't you use the options `-x` and `-c` at the same time with `tar`?
-
+    Because they perform opposite functions -c Creates a new tar archive file and -x eXtracts the previously created tar archive. 
 ---
 
 ### Step 2: Create, Manage, and Automate Cron Jobs
@@ -41,7 +39,7 @@ Save and submit the completed file for your homework submission.
     ```
 
 3. Command to make the `system.sh` script executable:
-
+    chmod +x system.sh
 **Optional**
 - Commands to test the script and confirm its execution:
 
